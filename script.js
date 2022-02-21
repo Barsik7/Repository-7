@@ -1,3 +1,5 @@
+const div = document.querySelector('.user-info');
+
 function doFetch(URL, callback) {
     fetch(URL)
         .then(response => {
@@ -33,23 +35,28 @@ document.addEventListener('click', (event) => {
             }
         )
         .then(data => {
-          const p = document.createElement('p');
-          const div = document.querySelector('div');
-          p.textContent = `${data.name} ${data.email} ${data.phone} ${data.website}`;
-          div.append(p);
+          const info = data;
+          const infoHTML = `<p>${info.name}</p>
+          <p>${info.email}</p>
+          <p>${info.phone}</p>
+          <p>${info.website}</p>`;
+          div.innerHTML = infoHTML;
         })
             }
-       })
+       });
 
-function removeEl() {
-    const div = document.querySelector('div');
-    const p = document.querySelector('p');
-    div.removeChild(p);
 
-}
+        
+        
 
-const list = document.querySelector('ul');
-list.onclick = removeEl;
+    
+
+
+
+      
+  
+
+
 
         
 
